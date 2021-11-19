@@ -6,3 +6,66 @@ const images = [
     './assets/5.jpg',
     './assets/6.jpg'
 ]
+
+// select bubbles
+const bubbles = document.querySelectorAll('.bubble')
+
+
+
+// draw bubbles?
+function drawBubbles(){
+    for(let i = 0; i < images.length; i++){
+        bubbles[i].textContent = '○'
+    }
+    bubbles[currentImg].textContent = '●'
+}
+
+
+
+    //set start image 0, first to load when we open the page
+let currentImg = 0;
+    drawBubbles()
+const slideShowImage = document.querySelector('.image')
+slideShowImage.setAttribute('src', images[currentImg])
+
+
+//advance or reverse through images using buttons and circles
+function advanceOne(){
+     if(currentImg === images.length-1){
+        currentImg = 0
+    }
+    else{
+        currentImg++
+    }
+    slideShowImage.setAttribute('src', images[currentImg])
+    drawBubbles()
+}
+const prevBtn = document.querySelector('.previous')
+prevBtn.addEventListener('click', function(e){
+
+     if(currentImg === 0){
+        currentImg = images.length-1
+    }
+    else{
+        currentImg--
+    }
+    slideShowImage.setAttribute('src', images[currentImg])
+    drawBubbles()})
+
+const nextBtn = document.querySelector('.next')
+console.log(nextBtn)
+nextBtn.addEventListener('click', function(e){
+    advanceOne()
+})
+
+for (let i = 0; i < bubbles.length; i++){
+    bubbles[i].addEventListener('click', function(e){
+    currentImg = parseFloat(bubbles[i].id.slice(-1))
+    slideShowImage.setAttribute('src', images[currentImg])
+        drawBubbles()
+    })
+}
+
+
+// advance through photos automatically each five seconds
+            setInterval(advanceOne, 5000) 
