@@ -40,6 +40,8 @@ function advanceOne(){
     slideShowImage.setAttribute('src', images[currentImg])
     drawBubbles()
 }
+
+// previous button event listener
 const prevBtn = document.querySelector('.previous')
 prevBtn.addEventListener('click', function(e){
 
@@ -52,11 +54,15 @@ prevBtn.addEventListener('click', function(e){
     slideShowImage.setAttribute('src', images[currentImg])
     drawBubbles()})
 
+
+    // next button event listener
 const nextBtn = document.querySelector('.next')
 console.log(nextBtn)
 nextBtn.addEventListener('click', function(e){
     advanceOne()
 })
+
+
 
 for (let i = 0; i < bubbles.length; i++){
     bubbles[i].addEventListener('click', function(e){
