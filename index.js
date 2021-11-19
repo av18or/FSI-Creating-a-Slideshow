@@ -29,7 +29,7 @@ const slideShowImage = document.querySelector('.image')
 slideShowImage.setAttribute('src', images[currentImg])
 
 
-//advance or reverse through images using buttons and circles
+//advance or reverse through images using buttons(arrows) and circles
 function advanceOne(){
      if(currentImg === images.length-1){
         currentImg = 0
