@@ -73,5 +73,5 @@ for (let i = 0; i < bubbles.length; i++){
 }
 
 
-// advance through photos automatically each five seconds
-            setInterval(advanceOne, 5000) 
+// advance through photos automatically each second
+            setInterval(advanceOne, 1000) 
